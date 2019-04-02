@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
 
 namespace HelloWorldDemoProject
 {
@@ -16,8 +17,10 @@ namespace HelloWorldDemoProject
 
             try
             {
-                Console.WriteLine($"Holla, if ya' hear me! {args[1]}");
-                Console.WriteLine("Super, kein Fehler.");
+                var logger = new LoggingService();
+                //Console.WriteLine(folder);
+                //Console.WriteLine($"Holla, if ya' hear me! {args[1]}");
+                //Console.WriteLine("Super, kein Fehler.");
             }
             //catch(IndexOutOfRangeException ioore) //when(ioore.Message.Contains("Index"))
             //{
@@ -29,9 +32,11 @@ namespace HelloWorldDemoProject
             //    //Console.WriteLine(ex.Message);
             //    throw;
             //}
-            catch   (Exception)
+            catch   (UnauthorizedAccessException ex)
             {
-                throw new DemoException();
+                Console.WriteLine("kein Zugriff auf Log-Ordner. Kontaktieren Sie Ihren Fachhändler.");
+                Console.WriteLine("Vorgang wird abgebrochen.");
+                
             }
             finally
             {
