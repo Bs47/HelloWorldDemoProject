@@ -7,7 +7,7 @@ using System.IO;
 
 namespace HelloWorldDemoProject
 {
-    public class LoggingService
+    public class LoggingService : ILoggingService, IInitLogging
     {
         private string _filename;
 
