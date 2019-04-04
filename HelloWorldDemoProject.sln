@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DemoWPF", "DemoWPF\DemoWPF.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestProject", "TestProject\TestProject.csproj", "{7016C24E-0C87-44CC-BEA5-7753F0CDF1DF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharedTypes", "SharedTypes\SharedTypes.csproj", "{973E0D3A-384A-4136-A9B2-FF15B45DF44A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{7016C24E-0C87-44CC-BEA5-7753F0CDF1DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7016C24E-0C87-44CC-BEA5-7753F0CDF1DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7016C24E-0C87-44CC-BEA5-7753F0CDF1DF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{973E0D3A-384A-4136-A9B2-FF15B45DF44A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{973E0D3A-384A-4136-A9B2-FF15B45DF44A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{973E0D3A-384A-4136-A9B2-FF15B45DF44A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{973E0D3A-384A-4136-A9B2-FF15B45DF44A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

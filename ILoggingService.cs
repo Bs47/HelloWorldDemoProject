@@ -8,5 +8,8 @@ namespace HelloWorldDemoProject
         void Log(List<string> lines);
         void Log(string text);
         void Log(string[] lines);
+
+        void Log(SharedTypes.LogLineModel model);
+
     }
 }

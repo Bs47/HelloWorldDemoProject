@@ -103,6 +103,13 @@
       <Project>{5ec91230-8527-45b2-a700-d95340605937}</Project>
       <Name>HelloWorldDemoProject</Name>
     </ProjectReference>
+    <ProjectReference Include="..\SharedTypes\SharedTypes.csproj">
+      <Project>{973e0d3a-384a-4136-a9b2-ff15b45df44a}</Project>
+      <Name>SharedTypes</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Model\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

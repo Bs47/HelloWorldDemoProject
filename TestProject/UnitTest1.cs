@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Linq;
 
 namespace LoggerTestProject
 {
@@ -35,6 +37,49 @@ namespace LoggerTestProject
             logger.DeleteLog();
         }
 
+        [TestMethod]
+        public void TestLogLineModel()
+        {
+            var path = @"C:\Users\ADM\AppData\Roaming\Sage.Logs\logfile.txt";
+            int _index = 0;
+            HelloWorldDemoProject.LoggingService logger = new HelloWorldDemoProject.LoggingService();
+            logger.Init();
+
+            ClearTestFile();
+
+            for (int i = 0; i < 100; i++)
+            {
+                _index++;
+                SharedTypes.LogLineModel model = new SharedTypes.LogLineModel() { RowIndex = i, LoggingTime = DateTime.Now, Message = "Testeintrag " + i.ToString() };
+                logger.Log(model);
+                System.Threading.Thread.Sleep(100);
+            }
+
+            var list = new List<String>();
+            using (System.IO.StreamReader reader = new System.IO.StreamReader(path))
+            {
+                while(!reader.EndOfStream)
+                {
+                    var line = reader.ReadLine();
+                    list.Add(line);
+                }
+            }
+            var erg1 = list.Where(p => p.StartsWith("0")).Count();
+            var erg2 = list.Where(p => p.StartsWith("99")).Count();
+            var erg3 = list.Count();
+
+            Assert.IsTrue(erg1 == 1 && erg2 ==1 && erg3 == 100);
+
+        }
+
+        private void ClearTestFile()
+        {
+            var path = @"C:\Users\ADM\AppData\Roaming\Sage.Logs\logfile.txt";
+            using (System.IO.StreamWriter writer = new System.IO.StreamWriter(path))
+            {
+                writer.Write("");
+            }
+        }
 
     }
 }

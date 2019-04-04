@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
+using SharedTypes;
 
 namespace HelloWorldDemoProject
 {
@@ -102,6 +103,32 @@ namespace HelloWorldDemoProject
             return Path.Combine(path,"Sage.Logs", "logfile.txt");
         }
 
-        
+        public void Log(LogLineModel model)
+        {
+            string file = _filename;// GetFilename();
+
+            if (System.IO.File.Exists(file))
+            {
+                //File.Delete(file);
+                using (StreamWriter writer = new StreamWriter(file, true))
+                {
+                    writer.WriteLine(FormatModelMessage(model));
+                }
+            }
+        }
+
+        private StringBuilder FormatModelMessage(LogLineModel model)
+        {
+            var builder = new StringBuilder();
+
+            builder.Append(model.RowIndex);
+            builder.Append(" | "); //"\t" = Tab
+            builder.Append(model.LoggingTime);
+            builder.Append(" | ");
+            builder.Append(model.Message);
+
+            return builder;// $"{model.RowIndex.ToString()} | {model.LoggingTime.ToString()}: {model.Message} ";
+        }
+
     }
 }
